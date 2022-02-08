@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import React from "react";
 import "./App.css";
-import { Notas } from "./Components/Note/Notas";
+import {PhoneBook} from "./Components/PhoneBook/PhoneBook"
 
 function App() {
   /* const notes = [
@@ -76,8 +76,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
 
         {/*   <Countries/>     */}
-        <Notas />
-        {/* <PhoneBook /> */}
+        {/* <Notas /> */}
+        <PhoneBook />
         {/* {
           course.map((element)=>{
             return(
