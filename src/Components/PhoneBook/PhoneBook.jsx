@@ -3,6 +3,7 @@ import { Filtro } from "./Filtro";
 import { Form } from "./Form";
 import { ListContact } from "./ListContacts";
 import noteService from "../../services/notes";
+import axios from "axios";
 
 export const PhoneBook = () => {
   const [persons, setPersons] = useState([]);
@@ -44,12 +45,17 @@ export const PhoneBook = () => {
       setNewPhone("");
     } else {
       const newPerson = { name: newName, number: newPhone };
-      noteService.create(newPerson).then((result) => {
-        setPersons(persons.concat(result.data));
-        setcontact(persons.concat(result.data));
-        setNewName("");
-        setNewPhone("");
-      });
+      noteService
+        .create(newPerson)
+        .then((result) => {
+          setPersons(persons.concat(result.data));
+          setcontact(persons.concat(result.data));
+          setNewName("");
+          setNewPhone("");
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+        });
     }
   };
 
@@ -71,6 +77,10 @@ export const PhoneBook = () => {
   const deletePerson = (id, name) => {
     const resul = window.confirm(`Delete ${name} ?`);
     if (resul) {
+      /*   axios.delete(`http://localhost:3001/api/persons/${id}`).then((result) => {
+        getdate();
+      }); */
+
       noteService.deletePerson(id).then((result) => {
         getdate();
       });

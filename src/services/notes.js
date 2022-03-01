@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://phonebooknode.herokuapp.com/api/persons";
+const baseUrl = "api/persons";
 
 const getAll = () => {
   return axios.get(baseUrl);
@@ -14,13 +14,13 @@ const update = (id, newObject) => {
   return axios.put(`${baseUrl}/${id}`, newObject);
 };
 
-const deletePerson=(id)=>{
-    return axios.delete(`${baseUrl}/${id}`);
-}
+const deletePerson = (id) => {
+  return axios.delete(`${baseUrl}/${id}`);
+};
 
 export default {
   getAll,
   create,
   update,
-  deletePerson
+  deletePerson,
 };

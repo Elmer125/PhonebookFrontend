@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import React from "react";
 import "./App.css";
-import {PhoneBook} from "./Components/PhoneBook/PhoneBook"
+import { PhoneBook } from "./Components/PhoneBook/PhoneBook";
 
 function App() {
   /* const notes = [
